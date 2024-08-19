@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest-like Home Page</title>
+    <style>
+        .pin { margin: 10px; display: inline-block; }
+        img { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <h1>Pinterest-like Home Page</h1>
+    <div>
+        <% pins.forEach(pin => { %>
+            <div class="pin">
+                <img src="<%= pin.image.original.url %>" alt="<%= pin.note %>">
+                <p><%= pin.note %></p>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
