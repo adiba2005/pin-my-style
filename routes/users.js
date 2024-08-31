@@ -3,9 +3,10 @@ const plm = require('passport-local-mongoose');
 
 
 const Schema = mongoose.Schema; 
-mongoose.connect("mongodb://127.0.0.1:27017/project", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://127.0.0.1:27017/project", { useNewUrlParser: true })
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
+
 
 // User Schema
 const userSchema = new Schema({
@@ -30,8 +31,6 @@ const userSchema = new Schema({
     required: true,
     unique: true
   }
-}, {
-  timestamps: true // Automatically adds createdAt and updatedAt fields
 });
 userSchema.plugin(plm)
 const User = mongoose.model('User', userSchema);
